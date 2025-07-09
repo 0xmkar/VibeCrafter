@@ -393,7 +393,7 @@ export class AITrendAnalyzer {
           category: template.category,
           status: "active",
           createdAt: new Date(),
-          endTime: new Date(Date.now() + 24 * 60 * 60 * 1000), // 24 hours
+          endTime: new Date(Date.now() + 5 * 60 * 1000), // 5 minutes
           trendingTopics: analysis.topics,
           submissions: [],
           totalLikes: 0,
@@ -421,7 +421,7 @@ export class AITrendAnalyzer {
         category: "crypto",
         status: "active",
         createdAt: new Date(),
-        endTime: new Date(Date.now() + 24 * 60 * 60 * 1000),
+        endTime: new Date(Date.now() + 5 * 60 * 1000),
         trendingTopics: ["crypto", "bitcoin", "ethereum"],
         submissions: [],
         totalLikes: 0,

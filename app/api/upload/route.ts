@@ -40,7 +40,7 @@ export async function POST(request: NextRequest) {
     pinataFormData.append("file", file)
 
     const metadata = JSON.stringify({
-      name: `DeaVibeCrafter_${file.name}`,
+      name: `VibeCrafter_${file.name}`,
       keyvalues: {
         app: "dea-vibe-crafter",
         type: "submission",

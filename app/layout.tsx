@@ -8,7 +8,7 @@ import { ThemeProvider } from "@/components/theme-provider"
 const inter = Inter({ subsets: ["latin"] })
 
 export const metadata: Metadata = {
-  title: "DeaVibeCrafter - Gamified Content Creation on Farcaster",
+  title: "VibeCrafter - Gamified Content Creation on Farcaster",
   description: "AI-powered vibe challenges for the Farcaster network",
   generator: 'v0.dev'
 }

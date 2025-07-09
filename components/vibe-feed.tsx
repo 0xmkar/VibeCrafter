@@ -81,7 +81,7 @@ export default function VibeFeed() {
   }
 
   const handleShareChallenge = async (challenge: any) => {
-    const shareText = `Check out this AI-generated vibe challenge: "${challenge.title}" on DeaVibeCrafter! 🚀 #DeaVibeCrafter #Farcaster`
+    const shareText = `Check out this AI-generated vibe challenge: "${challenge.title}" on VibeCrafter! 🚀 #VibeCrafter #Farcaster`
 
     if (navigator.share) {
       try {

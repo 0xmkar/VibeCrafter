@@ -164,7 +164,7 @@ export default function ContentScreen() {
 
   const handleShare = async (content: ExclusiveContent) => {
     // Simulate sharing to Farcaster
-    const shareText = `Check out this exclusive content: "${content.title}" on DeaVibeCrafter! 🚀`
+    const shareText = `Check out this exclusive content: "${content.title}" on VibeCrafter! 🚀`
 
     if (navigator.share) {
       try {

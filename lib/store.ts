@@ -570,7 +570,7 @@ export const useVibeStore = create<VibeStore>()(
         const votingEndedChallenges = challenges.filter(
           (challenge) =>
             challenge.status === "voting" &&
-            new Date(challenge.endTime).getTime() + 12 * 60 * 60 * 1000 <= now.getTime(),
+            new Date(challenge.endTime).getTime() + 2 * 60 * 1000 <= now.getTime(),
         )
 
         for (const challenge of votingEndedChallenges) {

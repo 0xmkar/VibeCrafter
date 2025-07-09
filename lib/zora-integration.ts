@@ -425,32 +425,50 @@ export async function createZoraCoinFromSubmission(
   }
 ): Promise<{ address: string; transactionHash: string }> {
   try {
-    // For now, create a mock IPFS URI since we need proper metadata upload
-    const mockMetadataUri = `ipfs://bafybeigoxzqzbnxsn35vq7lls3ljxdcwjafxvbvkivprsodzrptpiguysy`
-
-    // Create the coin with mock data for testing
-    const result = await zoraCoinsService.createCoin({
-      name: submission.title,
-      symbol: submission.title.toUpperCase().replace(/\s+/g, "").slice(0, 8),
-      uri: mockMetadataUri,
-      payoutRecipient: submission.author,
-      platformReferrer: process.env.NEXT_PUBLIC_PLATFORM_ADDRESS,
-      currency: "ETH", // Use ETH on testnet
-      initialPurchase: {
-        currency: "ETH",
-        amount: "0.001" // 0.001 ETH initial purchase
-      }
+    console.log("🎨 Creating Zora Coin for winning submission:", submission.title)
+    
+    // Call our API route to create the coin server-side
+    const response = await fetch('/api/zora/create-coin', {
+      method: 'POST',
+      headers: {
+        'Content-Type': 'application/json',
+      },
+      body: JSON.stringify({
+        submissionTitle: submission.title,
+        submissionContent: submission.content,
+        submissionType: submission.type,
+        submissionAuthor: submission.author,
+        challengeTitle: challenge.title,
+        challengeDescription: challenge.description
+      })
     })
 
-    console.log("✅ Zora Coin created from submission:", result.address)
-    return result
+    if (!response.ok) {
+      throw new Error(`API call failed: ${response.status} ${response.statusText}`)
+    }
+
+    const result = await response.json()
+    
+    if (!result.success) {
+      throw new Error(result.error || 'Coin creation failed')
+    }
+
+    console.log(`✅ Zora Coin created ${result.isMock ? '(mock)' : '(real)'}:`, result.address)
+    
+    return {
+      address: result.address,
+      transactionHash: result.transactionHash
+    }
   } catch (error) {
     console.error("Failed to create Zora Coin from submission:", error)
     
-    // Return mock data for testing if SDK fails
-    return {
+    // Return mock data for testing if API call fails
+    const mockResult = {
       address: `0x${Math.random().toString(16).substr(2, 40)}`,
       transactionHash: `0x${Math.random().toString(16).substr(2, 64)}`
     }
+    
+    console.log("🔄 Using fallback mock coin:", mockResult.address)
+    return mockResult
   }
 }

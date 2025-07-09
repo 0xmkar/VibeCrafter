@@ -20,7 +20,7 @@ export async function POST(request: NextRequest) {
 
     const { request } = await creatorClient.create1155({
       contract: {
-        name: "DeaVibeCrafter Vibes",
+        name: "VibeCrafter Vibes",
         uri: "ipfs://your-contract-metadata-hash",
       },
       token: {

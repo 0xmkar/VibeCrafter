@@ -100,7 +100,7 @@ export default function SwipeScreen() {
   const handleShare = async () => {
     if (!currentSubmission) return
 
-    const shareText = `Check out this amazing vibe: "${currentSubmission.title}" by ${currentSubmission.author} on DeaVibeCrafter! 🚀`
+    const shareText = `Check out this amazing vibe: "${currentSubmission.title}" by ${currentSubmission.author} on VibeCrafter! 🚀`
 
     if (navigator.share) {
       try {

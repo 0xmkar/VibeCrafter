@@ -12,6 +12,15 @@ body {
   }
 }
 
+nextjs-portal {
+  display: none;
+}
+
+body {
+  overflow: auto !important;
+  padding: 0 !important;
+}
+
 @layer base {
   :root {
     --background: 0 0% 100%;
