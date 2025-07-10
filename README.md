@@ -20,6 +20,8 @@ VibeCrafter introduces a fun, AI-driven, community-first platform where:
 - 🔓 **Zora Coin holders** unlock exclusive content like AMAs or trend insights.
 
 ---
+![VibeCrafter Flowchart](./vibeCrafter-flow.png)
+---
 
 ## 🔁 Core Workflow
 
